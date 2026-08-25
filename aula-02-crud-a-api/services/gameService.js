@@ -4,6 +4,8 @@
 // Importando o Model
 import Game from "../models/Games.js"
 
+
+
 class gameService {
     // Serviço/MÉTODO para ler os jogos
     async getAll() {
@@ -34,6 +36,17 @@ class gameService {
             console.log(error)
         }
     }
+    // método para excluir um jogo
+    async Delete(id) {
+        try {
+             await Game.findByIdAndDelete(id)
+             // o metodo findbyidDelete () do monsoose busca um registro pela id  e delete 
+             console.log(`O jogo com a id ${id } foi deletado`)
+        }catch (error) {
+            console.log(error)
+        }
+    }
+    // encerra a classe 
 }
 // Exportando a classe
 export default new gameService()
