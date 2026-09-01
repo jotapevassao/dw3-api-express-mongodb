@@ -1,5 +1,10 @@
 // Importar o Express
 import express from "express";
+// importar o mongoose
+import mongoose from "mongoose"
+// importar o model
+import Game from "./models/Games.js"
+
 // Carregando EXpress
 const app = express();
 
@@ -30,7 +35,7 @@ app.get("/", (req, res )=>{
         }
     ]
     // Configura o retorno do APi
-    res.status(500).json(games)
+    res.status(200).json(games)
     
 });
 
@@ -46,6 +51,8 @@ app.get("/", (req, res )=>{
  //res.json(filmes);
 //});
 
+// Iniciado  a conexão  com mongo db
+ mongoose.connect("mongodb://127.0.0.1:27017/apithegames")
 // Iniciando o servidor a api
 const port = 4000;
 app.listen(port, (error) => {
