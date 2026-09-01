@@ -10,7 +10,7 @@ const getAllGames = async (req, res) => {
     try {
         const games = await gameService.getAll()
         res.status(200).json({ games: games })
-        // Cod. 200 - OK - Requisição feita com sucesso
+        // Cod. 200 - OK - Requisição feita com sucesso ;
     } catch (error) {
         console.log(error)
         // Tratando a resposta que api irá enviar em caso de erro
